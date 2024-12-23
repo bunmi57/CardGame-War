@@ -50,7 +50,7 @@ test_player2_splitDeck = ['10', '9', '8', '7',
 def cardDeck():
     completeDeck = []
     incompleteDeck = ['King', 'Queen', 'Jack', 
-                      '10', '9', '8', '7',
+                      'King', 'Queen', 'Jack', '7',
                       '6', '5', '4', '3', '2']
     #change back to this
     # incompleteDeck = ['King', 'Queen', 'Jack', 
@@ -157,18 +157,21 @@ def compareCard(playedCard_player1, playedCard_player2):
         return 'play2'
 #print(compareCard('King','King'))
 battlecards = []
+
 #*********************************************************************************************************************************
 #Function to take 4 cards when  a 'battle' is declared
 def battle(player1_splitDeck,player2_splitDeck,battlecards):
     #battlecards = []
     battleCard_player1 = grabCard('player1',player1_splitDeck,player2_splitDeck,availablePosition_player1,availablePosition_player2)
-    battleCard_player2 = grabCard('player2',player1_splitDeck,player2_splitDec,availablePosition_player1,availablePosition_player2)
+    battleCard_player2 = grabCard('player2',player1_splitDeck,player2_splitDeck,availablePosition_player1,availablePosition_player2)
     print(f'Player 1 Battle Card: {battleCard_player1}')
     print(f'Player 2 Battle Card: {battleCard_player2}')
  #   battleWinner = compareCard(battleCard_player1, battleCard_player2)
     battlecards.append(battleCard_player1)
     battlecards.append(battleCard_player2)
     battleWinner = compareCard(battleCard_player1, battleCard_player2)
+    # Clear the battlecards list after the battle
+    battlecards.clear()
     print(f'Battlecards: {battlecards}')
     return battlecards,battleWinner
 wonDeck_player1 = []
@@ -262,4 +265,5 @@ while winnerFound == False:
 '''
 Notes
 Cases not currently accounted for 
+
 '''
