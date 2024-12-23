@@ -226,6 +226,9 @@ def overallWinner(wonDeck_player1, wonDeck_player2):
     elif len(wonDeck_player2) == 12: #change back to 52
         print("Player 2 wins")
         return True
+    elif len(availablePosition_player1) == 0 or len(availablePosition_player2) == 0: #end game when If player's deck is empty (no available positions to play) but there is no winner
+        print("Game over - no winner")
+        return True
     else:
         return False #do nothing
 
@@ -255,24 +258,8 @@ while winnerFound == False:
     winnerFound = result
 
 
-
 #*********************************************************************************************************************************
 '''
 Notes
-#########################################################
-def cardRanking(cardDeck,card):
-    x = 0
-    value = 1000
-    for suite in cardDeck:
-         ranking = {suite:value}
-         value -= 50
-         print(f'suite: {suite} Value: {ranking[suite]}')
-    
-    return ranking[card]
-
-print(cardRanking(cardDeck, 'King'))
-
-#########################################################
-#prices_lookup ={'apple':3,'oranges':1.00,'milk':5.80}
-#print(prices_lookup['apple'])
+Cases not currently accounted for 
 '''
