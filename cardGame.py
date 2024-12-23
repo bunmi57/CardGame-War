@@ -119,11 +119,12 @@ def grabCard(player,player1_splitDeck,player2_splitDeck,availablePosition_player
 
         while position_player1 not in availablePosition_player1: #ask player for input if position is not in the list of selected positions
             #print(f'Player 1 Available positions: {availablePosition_player1}')
+            print(f'Player 1 Updated Available position: {availablePosition_player1}')
             position_player1 = int(input("Player 1 select a position: "))
         selectedPosition_player1.append(position_player1)
         availablePosition_player1.remove(position_player1) #remove selected position from the list of available position 
         playedCard_player1 = player1_splitDeck[position_player1]
-        print(f'Player 1 Updated Available position: {availablePosition_player1}')
+        #print(f'Player 1 Updated Available position: {availablePosition_player1}')
         return playedCard_player1
         
     elif player == 'player2':
@@ -135,11 +136,12 @@ def grabCard(player,player1_splitDeck,player2_splitDeck,availablePosition_player
 
         while position_player2 not in availablePosition_player2: #ask player for input if position is not in the list of selected positions
             #print(f'Player 2 Available positions: {availablePosition_player2}')
+            print(f'Player 2 Updated Available position: {availablePosition_player2}')
             position_player2 = int(input("Player 2 select a position: "))
         selectedPosition_player2.append(position_player2)
         availablePosition_player2.remove(position_player2) #remove selected position from the list of available position 
         playedCard_player2 = player2_splitDeck[position_player2]
-        print(f'Player 2 Updated Available position: {availablePosition_player2}')
+        #print(f'Player 2 Updated Available position: {availablePosition_player2}')
         return playedCard_player2   
 #print(grabCard('player2',testDeck,testDeck))
 #*********************************************************************************************************************************
@@ -169,11 +171,13 @@ def battle(player1_splitDeck,player2_splitDeck,battlecards):
     battleWinner = compareCard(battleCard_player1, battleCard_player2)
     print(f'Battlecards: {battlecards}')
     return battlecards,battleWinner
+wonDeck_player1 = []
+wonDeck_player2 = []
 #*********************************************************************************************************************************
 #Function to determine the winner of the current round being played
 def roundWinner(play,playedcard_player1,playedcard_player2,player1_splitDeck,player2_splitDeck,battlecards):
-    wonDeck_player1 = []
-    wonDeck_player2 = []
+   # wonDeck_player1 = []
+   # wonDeck_player2 = []
     inBattle = True
 
     if play == 'play1': #if player 1 won, player 1 takes both players cards
