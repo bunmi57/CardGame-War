@@ -39,10 +39,7 @@ class Deck:
     def deal_one(self): #dels one card 
         return self.all_cards.pop()
 
-# new_deck = Deck()
-# new_deck.shuffle()
-# mycard = new_deck.deal_one()
-# print(mycard)
+
 # print(len(new_deck.all_cards))
 # mycard = new_deck.deal_one()
 # print(mycard)
@@ -54,3 +51,37 @@ class Deck:
 # print(new_deck.all_cards[0])
 # for card_object in new_deck.all_cards:
 #     print(card_object)
+
+#Player Class
+class Player:
+    def __init__(self,name):
+        self.name = name
+        self.all_cards = []
+
+    def remove_one(self):
+        return self.all_cards.pop(0)
+    
+    def add_cards(self,new_cards):
+        if type(new_cards) == type([]):     #a list
+            #List of multiple Card Objects
+            self.all_cards.extend(new_cards)
+        else:
+            #For a single card object
+            self.all_cards.append(new_cards)
+
+    def __str__(self):
+        return f'Player {self.name} has {len(self.all_cards)} cards'
+
+# new_player = Player("Jose")
+# print(new_player)
+# new_deck = Deck()
+# new_deck.shuffle()
+# mycard = new_deck.deal_one()
+# print(mycard)
+# new_player.add_cards(mycard)
+# print(new_player)
+# print(new_player.all_cards[0])
+# new_player.add_cards([mycard,mycard,mycard,mycard,mycard,mycard])
+# print(new_player)
+# new_player.remove_one()
+# print(new_player)
